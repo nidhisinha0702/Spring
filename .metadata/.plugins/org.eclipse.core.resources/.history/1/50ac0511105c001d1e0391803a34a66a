@@ -1,0 +1,39 @@
+
+public class ThreadDeadlock {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}
+
+class Thread1 extends Thread{
+	Thread1 t1 =new Thread1();
+	public void run() {
+		synchronized(Thread1.class) {
+			for(int i=0;i<5;i++) {
+				System.out.println("Thread1 class"+i);
+			}t1.start();
+		}
+	}
+}
+class Thread2 extends Thread{
+	Thread1 t2 =new Thread1();
+	public void run() {
+		synchronized(Thread2.class) {
+			for(int i=0;i<5;i++) {
+				System.out.println("Thread2 class"+i);
+			}t2.start();
+		}
+	}
+}
+
+class Resource1{}
+class Resource2{}
+
+//employee table, id,name,department,sal, maximum salary for each department
+
+//select max(e.sal),e.department from employee e  group by department
+
+

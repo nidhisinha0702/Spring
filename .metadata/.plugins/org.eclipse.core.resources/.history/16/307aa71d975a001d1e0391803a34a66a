@@ -1,0 +1,41 @@
+
+class Queue {
+boolean isFull=false;
+int x=100;
+public int dequeue() {
+	return x;
+}
+public void enqueue(int x) {
+	x++;
+}
+}
+
+class Producer extends Thread{
+	
+	
+	Queue queue;
+	public void run() {
+		if(queue.isFull) {
+			queue.enqueue(100);
+		}queue.isFull=true;
+	}
+}
+class Consumer extends Thread{
+	Queue queue;
+	public void run() {
+		if(!queue.isFull) {
+			queue.dequeue();
+		}queue.isFull=false;
+	}
+}
+
+public class Q{
+	public static void main(String args[]) {
+		Queue q=new Queue();
+		Producer p=new Producer();
+		p.start();
+		Consumer c=new Consumer();
+		c.start();
+	}
+}
+

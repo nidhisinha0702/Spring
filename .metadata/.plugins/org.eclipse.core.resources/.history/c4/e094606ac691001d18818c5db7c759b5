@@ -1,0 +1,5 @@
+package DesignPatterns.PrototypePattern;
+
+public class Teacher {
+
+}

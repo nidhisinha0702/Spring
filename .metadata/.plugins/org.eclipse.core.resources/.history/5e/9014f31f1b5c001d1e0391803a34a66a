@@ -1,0 +1,39 @@
+
+public class ThreadDeadlock {
+	public static void main(String[] args) {
+	final String s1 = "R1";
+	final String s2 = "R2";
+		Thread t1 = new Thread() {
+			public void run() {
+					synchronized (s1) {
+						try {
+							System.out.println(Thread.currentThread().getName()+" locked "+s1);
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+					}
+					synchronized (s2) {
+						System.out.println(Thread.currentThread().getName()+" locked "+s2);
+					}
+				}
+		};
+		Thread t2 = new Thread() {
+			public void run() {
+						synchronized (s2) {
+							System.out.println(Thread.currentThread().getName()+" locked "+s2);
+							try {
+								Thread.sleep(1000);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							synchronized (s1) {
+								System.out.println(Thread.currentThread().getName()+" locked "+s1);
+							}
+						}
+				}
+			};
+			t1.start();
+			t2.start();
+}
+}

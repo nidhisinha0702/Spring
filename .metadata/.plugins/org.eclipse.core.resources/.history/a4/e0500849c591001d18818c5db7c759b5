@@ -1,0 +1,5 @@
+package DesignPatterns.PrototypePattern;
+
+public abstract class Profession implements Cloneable {
+
+}

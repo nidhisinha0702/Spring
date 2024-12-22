@@ -1,0 +1,22 @@
+import java.lang.reflect.Method;
+
+public class TestMyAnnoation {
+	@MyAnnotation(developerName="John",expirydate="10-10-2022")
+	public void myMethod1() {
+		System.out.println("mymethod1.....");
+	}
+	
+	@MyAnnotation(developerName="Zoya",expirydate="10-10-2023")
+	public void myMethod2() {
+		System.out.println("mymethod2.....");
+	}
+
+	public static void main(String[] args) throws NoSuchMethodException, SecurityException {
+		System.out.println("Welcome to annotation world");
+		Method method=new TestMyAnnoation().getClass().getMethod("myMethod1");
+		MyAnnotation annotation = method.getAnnotation(MyAnnotation.class);
+		System.out.println(annotation.developerName()+"\t"+annotation.expirydate());
+
+	}
+
+}
