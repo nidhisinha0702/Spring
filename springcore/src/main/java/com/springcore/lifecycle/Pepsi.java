@@ -1,8 +1,9 @@
 package com.springcore.lifecycle;
 
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
-public class Pepsi implements InitializingBean{
+public class Pepsi implements InitializingBean,DisposableBean{
 	
 	private double price;
 
@@ -25,8 +26,8 @@ public class Pepsi implements InitializingBean{
 	}
 
 	public void afterPropertiesSet() throws Exception {
-		//init
-		System.out.println("taking pepsi + init");
+		//work as init method
+		System.out.println("taking pepsi : init");
 		
 	}
 	

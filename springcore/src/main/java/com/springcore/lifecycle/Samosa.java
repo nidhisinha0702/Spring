@@ -23,10 +23,10 @@ public class Samosa {
 	}
 	
 	public void hi() {
-		System.out.println("Inside init method");
+		System.out.println("Inside init method:hi how are you?");
 	}
 	
 	public void bye() {
-		System.out.println("Inside destroy method");
+		System.out.println("Inside destroy method: Bye shutting down...");
 	}
 }

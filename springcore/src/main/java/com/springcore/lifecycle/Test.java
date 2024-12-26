@@ -10,7 +10,7 @@ public class Test {
 		Samosa s1 = (Samosa)context.getBean("s1");
 		System.out.println(s1);
 		
-		context.registerShutdownHook();
+		context.registerShutdownHook();//call destroy method
 		System.out.println("++++++++++++++++++++");
 		Pepsi p1 = (Pepsi)context.getBean("p1");
 		System.out.println(p1);
