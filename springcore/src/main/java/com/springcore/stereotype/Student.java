@@ -12,7 +12,7 @@ public class Student {
 	private String studentName;
 	@Value("Bangalore")
 	private String city;
-	
+	@Value("#{temp}")
 	private List<String> address;
 	
 	public String getStudentName() {
@@ -27,9 +27,16 @@ public class Student {
 	public void setCity(String city) {
 		this.city = city;
 	}
+	
+	public List<String> getAddress() {
+		return address;
+	}
+	public void setAddress(List<String> address) {
+		this.address = address;
+	}
 	@Override
 	public String toString() {
-		return "Student [studentName=" + studentName + ", city=" + city + "]";
+		return "Student [studentName=" + studentName + ", city=" + city + ", address=" + address + "]";
 	}
 	
 }
