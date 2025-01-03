@@ -3,7 +3,7 @@ package com.springcore.spel;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component //tell container to create object
 public class Demo {
 	
 	@Value("#{22+11}")
