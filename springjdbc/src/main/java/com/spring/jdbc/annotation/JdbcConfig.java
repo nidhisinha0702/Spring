@@ -1,4 +1,4 @@
-package com.spring.jdbc;
+package com.spring.jdbc.annotation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,10 +16,10 @@ public class JdbcConfig {
 	@Bean("ds")
 	public DriverManagerDataSource getDataSource() {
 		DriverManagerDataSource ds=new DriverManagerDataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
+		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		ds.setUrl("jdbc:mysql://localhost:3306/springjdbc");
 		ds.setUsername("root");
-		ds.setPassword("nidhi");
+		ds.setPassword("toor");
 		return ds;
 	}
 	
