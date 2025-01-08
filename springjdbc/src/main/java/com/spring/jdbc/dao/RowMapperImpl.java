@@ -9,6 +9,7 @@ import com.spring.jdbc.entities.Student;
 
 public class RowMapperImpl implements RowMapper<Student>{
 
+	//object relational mapping-> one row with one class object
 	public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
 		Student student = new Student();

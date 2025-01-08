@@ -24,12 +24,11 @@ public class App
         StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
         
         Student student = new Student();
-        student.setId(666);
-        student.setName("John");
-        student.setCity("NYC");
-        int result = studentDao.insert(student);
-        System.out.println("number of record inserted..."+result);
-		//StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
+//        student.setId(666);
+//        student.setName("John");
+//        student.setCity("NYC");
+//        int result = studentDao.insert(student);
+      		//StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
 		//insert
 		/*
 		 * Student student = new Student(); student.setId(666); student.setName("John");
@@ -38,15 +37,18 @@ public class App
 		 * int result = studentDao.insert(student); System.out.println(result);
 		 */
         //update
-			/*
-			 * Student student=new Student(); student.setId(245);
-			 * student.setName("Raj Kumar"); student.setCity("Lucknow"); int
-			 * result=studentDao.change(student); System.out.println("data changed"+result);
-			 */
+			
+//			  student.setId(600); //id of the person whose data to be updated
+//			 student.setName("Raj Kumar"); 
+//			 student.setCity("Lucknow"); 
+//			 int result=studentDao.change(student); 
+//			 System.out.println("data changed"+result);
+			
 		//delete
-		/*
-		 * int result=studentDao.delete(245); System.out.println("deleted "+result);
-		 */
+		
+//		 int result=studentDao.delete(600); 
+//		 System.out.println("deleted "+result);
+		 
 		
 		//select single data
 		/*

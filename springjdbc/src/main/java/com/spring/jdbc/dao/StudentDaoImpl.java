@@ -44,12 +44,14 @@ public class StudentDaoImpl implements StudentDao{
 	public Student getStudent(int studentId) {
 		//selecting single student data
 		String query="select * from student where id=?";
+		//RowMapper is an interface that converts ResultSet Object to Class Object
 		RowMapper<Student> rowMapper = new RowMapperImpl();
 		Student student = this.jdbcTemplate.queryForObject(query, rowMapper,studentId);
 		return student;
 	}
 
 	public List<Student> getAllStudents() {
+		//selecting list of students
 		String query = "select * from student";
 		List<Student> student = this.jdbcTemplate.query(query, new RowMapperImpl());
 		return student;
