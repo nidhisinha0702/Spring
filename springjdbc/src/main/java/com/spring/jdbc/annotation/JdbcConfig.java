@@ -30,10 +30,10 @@ public class JdbcConfig {
 		return jdbcTemplate;
 	}
 	
-	@Bean("studentDao")
-	public StudentDao getStudentDao() {
-		StudentDaoImpl studentDao = new StudentDaoImpl();
-		studentDao.setJdbcTemplate(getTemplate());
-		return studentDao;
-	}
+//	@Bean("studentDao")
+//	public StudentDao getStudentDao() {
+//		StudentDaoImpl studentDao = new StudentDaoImpl();
+//		studentDao.setJdbcTemplate(getTemplate());
+//		return studentDao;
+//	}
 }

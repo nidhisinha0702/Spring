@@ -12,6 +12,7 @@ import com.spring.jdbc.entities.Student;
 @Component("studentDao")
 public class StudentDaoImpl implements StudentDao{
 
+	
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Student student) {
