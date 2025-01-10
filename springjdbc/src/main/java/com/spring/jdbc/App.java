@@ -23,7 +23,7 @@ public class App
         	
         StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
         
-        Student student = new Student();
+        //Student student = new Student();
 //        student.setId(666);
 //        student.setName("John");
 //        student.setCity("NYC");
@@ -51,15 +51,14 @@ public class App
 		 
 		
 		//select single data
-		/*
-		 * Student student = studentDao.getStudent(456);
-		 * System.out.println("selecting single student "+student);
-		 */
+//		Student student = studentDao.getStudent(456);
+//		System.out.println("selecting single student "+student);
+		 
 		//select all data
 		
-		//List<Student> students = studentDao.getAllStudents();
-//		for(Student s:students) {
-//			System.out.println(s);
-//		}
+		List<Student> students = studentDao.getAllStudents();
+		for(Student s:students) {
+			System.out.println(s);
+		}
     }
 }
