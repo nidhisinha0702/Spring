@@ -8,6 +8,7 @@
     http://www.springframework.org/schema/context
     https://www.springframework.org/schema/context/spring-context.xsd">
     
+    <context:annotation-config />
     <context:component-scan base-package="springmvc.controller" />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
     	<property name="prefix" value="/WEB-INF/views/" />
