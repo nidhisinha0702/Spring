@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,7 +15,8 @@
   </head>
   <body>
   <div class = "container mt-5">
-  <h3 class="text-center">Registration Form</h3>
+  <h3 class="text-center">${Header}</h3>
+  <p class="text-center">${Desc}</p>
     <form action="processform" method="post">
 	     <div class="form-group">
 	    <label for="exampleInputEmail1">Email address</label>
