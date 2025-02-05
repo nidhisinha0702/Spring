@@ -11,9 +11,17 @@ public class Student {
 	private Long id;
 	//@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date;
-	private List<String> courses;
+	private List<String> subjects;
 	private String gender;
 	private String type;
+	private Address address;
+	
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 	public String getName() {
 		return name;
 	}
@@ -32,11 +40,11 @@ public class Student {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public List<String> getCourses() {
-		return courses;
+	public List<String> getSubjects() {
+		return subjects;
 	}
-	public void setCourses(List<String> courses) {
-		this.courses = courses;
+	public void setCourses(List<String> subjects) {
+		this.subjects = subjects;
 	}
 	public String getGender() {
 		return gender;
@@ -52,8 +60,8 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", id=" + id + ", date=" + date + ", courses=" + courses + ", gender=" + gender
-				+ ", type=" + type + "]";
+		return "Student [name=" + name + ", id=" + id + ", date=" + date + ", subjects=" + subjects + ", gender=" + gender
+				+ ", type=" + type + ", address=" + address + "]";
 	}
 	
 	

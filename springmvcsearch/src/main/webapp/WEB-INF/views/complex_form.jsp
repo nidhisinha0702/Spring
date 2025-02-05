@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!doctype html>
@@ -21,11 +22,12 @@
 	<div class="container mt-4">
 
 		<div class="row">
-			<div class="col-md-6 offset-md-3">
+			<div class="col-md-8 offset-md-2">
 				<div class="card">
 					<div class="card-body">
 						<h3 class="text-center">Complex Form</h3>
-
+						<div class="alert alert-danger alert-dismissible fade show">
+						<form:errors path="student.*"></form:errors>
 						<form action="handleform" method="post">
 
 							<div class="form-group">
@@ -76,7 +78,16 @@
 										class="form-check-label" for="inlineRadio2">Female</label>
 								</div>
 							</div>
-
+							<div class="card">
+								<div class="card-body">
+									<p>Your address</p>
+									
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Enter street" name="address.street" />
+										<input type="text" class="form-control" placeholder="Enter city" name="address.city" />
+									</div>
+								</div>
+							</div>
 							<div class="form-group">
 								<label for="">Select Type</label> <select class="form-control"
 									name="type">
