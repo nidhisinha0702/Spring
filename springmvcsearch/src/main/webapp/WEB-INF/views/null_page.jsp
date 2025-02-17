@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page isELIgnored="false" %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,28 +9,27 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<link href="<c:url value="/resources/css/style.css" />" />
-	<script src ="<c:url value="/resources.js/script.js" />"></script>
-    <title>Hello, world!</title>
+    <title>Error !!</title>
   </head>
   <body>
-  <img alt="my image" src="<c:url value="resources/image/profile.jpg" />" />
-    <div class="cntainer">
-    <h1>This is my home page</h1>
-    	<div class="card mx-auto mt-5 bg-secondary" style="width:50%;">
-    		<div class="card-body py-5">
-    		<h3 class="text-center text-white" style="text-transform:uppercase;">My Search</h3>
-    			<Form action="search" class="mt-3">
-    				<div class="form-group">
-    					<input type="text" name="querybox" placeholder="Enter your keyword" class="form-control" />
-    				</div>
-    				<div class="container text-center">
-    				<button class="btn btn-outline-light">Search</button>
-    				</div>
-    			</Form>
-    		</div>
-    	</div>
-    </div>
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-12">
+  			<div class="error-template">
+  				<h1>Oops! Sorry</h1>
+  				<h2>${msg}</h2>
+  				<div class="error-details">Sorry, an error has occured, Requested page not found!</div>
+  				<div class="error-actions">
+  					<a href="#!"><span>Take Me Home</span></a>
+  					<a href="#!" class="btn btn-default btn-lg">
+  					<span class="glyphicaon glyphicon-envelop"></span>
+  					Contact Support
+  					</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
