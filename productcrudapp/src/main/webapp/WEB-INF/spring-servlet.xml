@@ -14,7 +14,7 @@
      http://www.springframework.org/schema/mvc
     https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     
-    <!-- enable txn annotation -->
+    <!-- enable transaction annotation -->
     <tx:annotation-driven/>
     
     <context:component-scan base-package="productcrudapp"></context:component-scan>
@@ -51,9 +51,10 @@
     <!-- template -->
     <bean class="org.springframework.orm.hibernate5.HibernateTemplate" name="hibernateTemplate">
     	<property name="sessionFactory" ref="factory"></property>
+    	<property name="checkWriteOperations" value="false"></property>
     </bean> 
     
-    <!-- txn manager -->
+    <!-- transaction manager -->
     <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager">
     	<property name="sessionFactory" ref="factory"></property>
     </bean>

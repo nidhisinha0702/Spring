@@ -7,9 +7,11 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import productcrudapp.model.Product;
 
+@EnableTransactionManagement 
 @Component
 public class ProductDao {
 
@@ -20,7 +22,7 @@ public class ProductDao {
 	
 	@Transactional
 	public void createProduct(Product product) {
-		this.hibernateTemplate.save(product);
+		this.hibernateTemplate.saveOrUpdate(product);
 	}
 	
 	//get all products
