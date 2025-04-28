@@ -1,0 +1,18 @@
+<!DCOTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>OpenID Connect Example</title>
+</head>
+<body>
+	<div th:if="${name}">
+		<h1>Welcome, <span th:text="${name}">!</span></h1>
+		<p>Your email is: <span th:text="${email}"></span></p>
+		<p>Your ID token:</p>
+		<pre th:text="${idToken}"></pre>
+		<a href="/logout">Logout</a>
+	</div>
+	<div th:unless="${name}">
+	<a href="/oauth2/authorization/google">Login with Google</a>
+	</div>
+</body>
+</html>
