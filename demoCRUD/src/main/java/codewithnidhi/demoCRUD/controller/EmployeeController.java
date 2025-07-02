@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import codewithnidhi.demoCRUD.entity.Employee;
+import codewithnidhi.demoCRUD.exception.BusinessException;
+import codewithnidhi.demoCRUD.exception.ControllerException;
 import codewithnidhi.demoCRUD.service.EmployeeServiceInterface;
 
 @RestController
@@ -24,30 +26,51 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeServiceInterface empService;
 	
+	//read
 	@GetMapping("/all")
 	public ResponseEntity<List<Employee>> getAllEmployees(){
 		List<Employee> listOfEmp = empService.getAllEmployees();
 		return new ResponseEntity<List<Employee>>(listOfEmp, HttpStatus.OK);
 	}
 	
+	//create
 	@PostMapping("/save")
-	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
-		Employee employeeSaved = empService.addEmployee(employee);
-		return new ResponseEntity<Employee>(employeeSaved, HttpStatus.CREATED);
+	public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
+		try {
+			Employee employeeSaved = empService.addEmployee(employee);
+			return new ResponseEntity<Employee>(employeeSaved, HttpStatus.CREATED);
+		}catch(BusinessException e) {
+			ControllerException ce = new ControllerException(e.getErrorCode(),e.getErrorMessage());
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
+		}catch(Exception e) {
+			ControllerException ce = new ControllerException("610","Something went wrong in crontroller");
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
+		}
 	}
 	
+	//read
 	@GetMapping("/emp/{empId}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable("empId") Long empidL){
-		Employee oneEmployee = empService.getOneEmployee(empidL);
-		return new ResponseEntity<Employee>(oneEmployee, HttpStatus.OK);
+	public ResponseEntity<?> getEmployeeById(@PathVariable("empId") Long empidL){
+		try {
+			Employee oneEmployee = empService.getOneEmployee(empidL);
+			return new ResponseEntity<Employee>(oneEmployee, HttpStatus.OK);
+		}catch(BusinessException e) {
+			ControllerException ce = new ControllerException(e.getErrorCode(),e.getErrorMessage());
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
+		}catch(Exception e) {
+			ControllerException ce = new ControllerException("611","Something went wrong in crontroller while fetching by id");
+			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
+		}
 	}
 	
+	//delete
 	@DeleteMapping("/emp/{empId}")
 	public ResponseEntity<Void> deleteEmployee(@PathVariable("empId") Long empIdL) {
 		empService.deleteOneEmployee(empIdL);
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
 	
+	//update
 	@PutMapping("/update")
 	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee){
 		Employee employeeSaved = empService.addEmployee(employee);
