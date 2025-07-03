@@ -36,31 +36,16 @@ public class EmployeeController {
 	//create
 	@PostMapping("/save")
 	public ResponseEntity<?> addEmployee(@RequestBody Employee employee){
-		try {
 			Employee employeeSaved = empService.addEmployee(employee);
 			return new ResponseEntity<Employee>(employeeSaved, HttpStatus.CREATED);
-		}catch(BusinessException e) {
-			ControllerException ce = new ControllerException(e.getErrorCode(),e.getErrorMessage());
-			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
-		}catch(Exception e) {
-			ControllerException ce = new ControllerException("610","Something went wrong in crontroller");
-			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
-		}
+		
 	}
 	
 	//read
 	@GetMapping("/emp/{empId}")
 	public ResponseEntity<?> getEmployeeById(@PathVariable("empId") Long empidL){
-		try {
 			Employee oneEmployee = empService.getOneEmployee(empidL);
 			return new ResponseEntity<Employee>(oneEmployee, HttpStatus.OK);
-		}catch(BusinessException e) {
-			ControllerException ce = new ControllerException(e.getErrorCode(),e.getErrorMessage());
-			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
-		}catch(Exception e) {
-			ControllerException ce = new ControllerException("611","Something went wrong in crontroller while fetching by id");
-			return new ResponseEntity<ControllerException>(ce, HttpStatus.BAD_REQUEST);
-		}
 	}
 	
 	//delete
