@@ -13,10 +13,14 @@ public class UserService {
 	@Autowired
 	private UserRepo userRepo;
 	
-	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(12);
+	private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	
 	public User register(User user) {
 		user.setPassword(encoder.encode(user.getPassword()));
 		return userRepo.save(user);
+	}
+
+	public void remove(int uid) {
+		userRepo.deleteById(uid);
 	}
 }

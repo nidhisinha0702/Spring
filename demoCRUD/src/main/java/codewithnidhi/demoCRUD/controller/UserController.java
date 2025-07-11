@@ -2,17 +2,16 @@ package codewithnidhi.demoCRUD.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import codewithnidhi.demoCRUD.entity.User;
 import codewithnidhi.demoCRUD.service.UserService;
 
 @RestController
-@RequestMapping("/api")
 public class UserController {
 
 	@Autowired
@@ -23,9 +22,14 @@ public class UserController {
 
     @PostMapping("/register")
     public String register(@RequestBody User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRole("ROLE_USER");
         service.register(user);
         return "User registered successfully!";
+    }
+    
+    @DeleteMapping("/delete/{id}")
+    public String remove(@PathVariable("id") int uid) {
+    	service.remove(uid);
+    	return "User deleted successfully";
     }
 }
