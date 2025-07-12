@@ -26,6 +26,11 @@ public class UserController {
         service.register(user);
         return "User registered successfully!";
     }
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+    	
+    	return service.verify(user);
+    }
     
     @DeleteMapping("/delete/{id}")
     public String remove(@PathVariable("id") int uid) {
